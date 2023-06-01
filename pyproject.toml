@@ -11,6 +11,7 @@ python = "^3.11"
 django = "^4.2.1"
 environs = "^9.5.0"
 django-bootstrap5 = "^23.1"
+black = "^23.3.0"
 
 
 [build-system]
