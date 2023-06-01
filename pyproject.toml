@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "teste-django"
+version = "0.1.0"
+description = ""
+authors = ["Diogo Lima"]
+readme = "README.md"
+packages = [{include = "teste_django"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.2.1"
+environs = "^9.5.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
