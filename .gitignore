@@ -2,3 +2,5 @@
 *.sqlite*
 *.py[cod]
 __pycache__/
+/media/
+/staticfiles/
