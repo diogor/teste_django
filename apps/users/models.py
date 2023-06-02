@@ -11,4 +11,3 @@ class User(AbstractUser):
     profile = models.CharField(
         choices=ProfileChoices.choices, max_length=5, default=ProfileChoices.USER
     )
-
