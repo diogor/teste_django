@@ -3,11 +3,12 @@ from django.contrib.auth.models import AbstractUser
 
 
 class ProfileChoices(models.TextChoices):
-    ADMIN = "admin"
-    USER = "user"
+    ADMIN = "admin", "Administrador"
+    USER = "user", "Usuário"
 
 
 class User(AbstractUser):
     profile = models.CharField(
         choices=ProfileChoices.choices, max_length=5, default=ProfileChoices.USER
     )
+
