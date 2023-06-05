@@ -12,4 +12,6 @@ class ProjectCreate(PermissionRequiredMixin, CreateView):
 
 class ProjectList(PermissionRequiredMixin, ListView):
     model = Project
+    paginate_by = 20
     permission_required = 'projects.view_project'
+    template_name = 'project_list.html'
