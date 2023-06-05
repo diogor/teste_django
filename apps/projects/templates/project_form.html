@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load django_bootstrap5 %}
+
+{% block title %}Projetos - Novo{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                <h2 class="mb-4">Novo Projeto</h2>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% bootstrap_form_errors form type='non_fields' %}
+                    {% bootstrap_field form.name %}
+                    {% bootstrap_field form.description %}
+                    {% bootstrap_field form.image %}
+                    <button type="submit" class="btn btn-primary">Criar Projeto</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
