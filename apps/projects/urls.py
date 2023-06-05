@@ -17,9 +17,7 @@ Including another URLconf
 from django.urls import path
 from .views import ProjectCreate, ProjectList
 
-urlpatterns = (
-    [
-        path("", ProjectList.as_view(), name="list_project"),
-        path("create/", ProjectCreate.as_view(), name="create_project"),
-    ]
-)
+urlpatterns = [
+    path("", ProjectList.as_view(), name="list_project"),
+    path("create/", ProjectCreate.as_view(), name="create_project"),
+]

@@ -1,10 +1,13 @@
 from .models import User
 from django import forms
 
+
 class UserCreationForm(forms.ModelForm):
     password = forms.CharField(label="Senha", widget=forms.PasswordInput)
-    password2 = forms.CharField(label="Confirmação de senha", widget=forms.PasswordInput)
-    
+    password2 = forms.CharField(
+        label="Confirmação de senha", widget=forms.PasswordInput
+    )
+
     def clean_password2(self):
         if self.cleaned_data["password"] != self.cleaned_data["password2"]:
             raise forms.ValidationError("As senhas não conferem")
