@@ -1,3 +1,10 @@
-from django.shortcuts import render
+from django.views.generic.edit import CreateView
+from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.urls import reverse_lazy
+from .models import Project
 
-# Create your views here.
+class ProjectCreate(PermissionRequiredMixin, CreateView):
+    model = Project
+    fields = ['name', 'image', 'description']
+    success_url = reverse_lazy('project_list')
+    permission_required = 'projects.add_project'
