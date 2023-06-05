@@ -2,13 +2,13 @@
 
 {% load django_bootstrap5 %}
 
-{% block title %}Registration{% endblock %}
+{% block title %}Cadastro de Usuário{% endblock %}
 
 {% block content %}
     <div class="container">
         <div class="row justify-content-center mt-5">
             <div class="col-md-6">
-                <h2 class="mb-4">Registration</h2>
+                <h2 class="mb-4">Cadastro</h2>
                 <form method="post">
                     {% csrf_token %}
                     {% bootstrap_form_errors form type='non_fields' %}
@@ -16,7 +16,7 @@
                     {% bootstrap_field form.email %}
                     {% bootstrap_field form.password %}
                     {% bootstrap_field form.password2 %}
-                    <button type="submit" class="btn btn-primary">Register</button>
+                    <button type="submit" class="btn btn-primary">Registrar</button>
                 </form>
             </div>
         </div>

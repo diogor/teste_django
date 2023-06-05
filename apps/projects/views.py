@@ -10,6 +10,7 @@ class ProjectCreate(PermissionRequiredMixin, CreateView):
     fields = ["name", "image", "description"]
     success_url = reverse_lazy("project_list")
     permission_required = "projects.add_project"
+    template_name = "project_form.html"
 
 
 class ProjectList(PermissionRequiredMixin, ListView):
