@@ -23,3 +23,9 @@ class UserCreationForm(forms.ModelForm):
         if commit:
             user.save()
         return user
+
+
+class UserEditForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ("profile", "groups", "is_active", "is_staff", "is_superuser")

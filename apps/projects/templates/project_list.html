@@ -12,6 +12,7 @@
                 <tr>
                     <th>Nome</th>
                     <th>Descrição</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -19,6 +20,9 @@
                     <tr>
                         <td>{{ project.name }}</td>
                         <td>{{ project.description }}</td>
+                        <td>
+                        <a href="{% url 'detail_project' project.id %}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Detalhes</a>
+                        </td>
                     </tr>
                 {% endfor %}
             </tbody>
@@ -65,6 +69,9 @@
                 {% endif %}
             </ul>
         </nav>
+        {% if perms.projects.add_project %}
+            <a href="{% url 'create_project' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Novo Projeto</a>
+        {% endif %}
     </div>
 
 {% endblock %}
