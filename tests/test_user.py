@@ -35,3 +35,23 @@ class UserCreationTests(TestCase):
         self.assertTrue(user.has_perm("projects.add_project"))
         self.assertTrue(user.has_perm("projects.change_project"))
         self.assertTrue(user.has_perm("projects.delete_project"))
+
+    def test_change_user_group_remove_perms(self):
+        user = User.objects.create_user(
+            username="testuser", email="d@d.com", password="testpassword"
+        )
+
+        editor_group = Group.objects.get(name="Editor")
+
+        self.assertFalse(user.has_perm("projects.add_project"))
+        self.assertFalse(user.has_perm("projects.change_project"))
+
+        user.groups.add(editor_group)
+
+        self.assertTrue(user.has_perm("projects.add_project"))
+        self.assertTrue(user.has_perm("projects.change_project"))
+
+        user.groups.remove(editor_group)
+
+        self.assertFalse(user.has_perm("projects.add_project"))
+        self.assertFalse(user.has_perm("projects.change_project"))
